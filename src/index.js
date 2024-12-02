@@ -1,8 +1,11 @@
 const express = require('express');
 const app = express();
 
-app.get('/', (req, res) => {
-  res.json({ message: 'Welcome to the CI/CD demo!' });
+app.get('/health', (req, res) => {
+  res.json({ 
+    status: 'healthy',
+    timestamp: new Date().toISOString()
+  });
 });
 
 const PORT = process.env.PORT || 3000;
